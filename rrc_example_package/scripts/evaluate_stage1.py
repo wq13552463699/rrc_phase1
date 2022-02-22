@@ -44,7 +44,7 @@ def main():
     step_size=50
     difficulty=3
     obs_type='default'
-    model_path = '/userhome/final_pinch_policy.pt'
+    model_path = '/userhome/model_with_dr.pt'
     #############
     
     # Make sim environment
