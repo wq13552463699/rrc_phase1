@@ -30,8 +30,10 @@ def process_inputs(o, g, o_mean, o_std, g_mean, g_std):
 
 def main():
     # the goal is passed as JSON string
-    goal_json = sys.argv[1]
-    goal = json.loads(goal_json)
+    # goal_json = sys.argv[1]
+    # goal = json.loads(goal_json)
+    with open('/userhome/goal.json','r',encoding='utf8') as fp:
+                goal = json.load(fp)['goal']
     print(goal)
     # some arguments
     load_actor=True
