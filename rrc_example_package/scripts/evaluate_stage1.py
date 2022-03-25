@@ -115,7 +115,7 @@ def main():
     tf = time.time()
     print('Time taken: {:.2f} seconds'.format(tf-t0))
     print('\nRRC reward: {}'.format(info['rrc_reward']))
-    torch.save([actor_network.state_dict()], './acmodel.pt')
+    torch.save([actor_network.state_dict()], '/output/acmodel.pt')
 
 if __name__ == "__main__":
     main()
