@@ -35,12 +35,7 @@ def process_inputs(o, g, o_mean, o_std, g_mean, g_std):
     inputs = torch.tensor(inputs, dtype=torch.float32)
     return inputs
 
-def main():
-    # the goal is passed as JSON string
-    # with open('./goal/goal.json','r',encoding='utf8') as fp:
-    #             goal = json.load(fp)['goal']
-    # print(goal)
-    
+def main():    
     # goal_json = sys.argv[1]
     # goal = json.loads(goal_json)
     # print(goal)
@@ -48,10 +43,9 @@ def main():
     load_actor=True
     max_steps=30
     steps_per_goal=30
-    env_type='sim'
+    env_type='real'
     visualization = False
     args = get_args()
-    n_epochs = 5
     buffer_size = int(6e5)
     save_freq = 20
     # Arguments for 'PINCHING' policy
