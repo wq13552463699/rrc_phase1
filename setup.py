@@ -39,6 +39,7 @@ setuptools.setup(
             "evaluate_stage1 = rrc_example_package.scripts.evaluate_stage1:main",
             "train = rrc_example_package.her.train:main",
             "demo = rrc_example_package.her.demo:main",
+            "collect_experience = rrc_example_package.scripts.collect_experience:main",
         ],
     },
 )
