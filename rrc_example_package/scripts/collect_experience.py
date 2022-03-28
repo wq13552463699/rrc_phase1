@@ -163,7 +163,6 @@ def main():
         print(f'Epoch {epoch}/{n_epochs}')
         print('Time taken for epoch: {:.2f} seconds'.format(tf-t0))
         print('\nRRC reward: {}'.format(info['rrc_reward']))
-        print(buffer.current_size)
         
         if epoch % save_freq == 0:
             print('saving...')
