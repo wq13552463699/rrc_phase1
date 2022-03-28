@@ -21,7 +21,6 @@ import time
 from rrc_example_package.her.rl_modules.replay_buffer_experience import replay_buffer
 from rrc_example_package.her.her_modules.her import her_sampler
 from rrc_example_package.her.arguments import get_args
-import pybullet as p
 
 # process the inputs
 def process_inputs(o, g, o_mean, o_std, g_mean, g_std):
@@ -105,8 +104,6 @@ def main():
 
         ep_obs, ep_ag, ep_g, ep_actions = [], [], [], []
         observation = env.reset(difficulty=difficulty, init_state='normal')
-
-        p.resetDebugVisualizerCamera(cameraDistance=0.45, cameraYaw=135, cameraPitch=-45.0, cameraTargetPosition=[0.0, 0.0, 0.0])
         
         obs = observation['observation']
         ag = observation['achieved_goal']
