@@ -54,7 +54,7 @@ def main():
     step_size=50
     difficulty=3
     obs_type='default'
-    model_path = 'rrc_example_package/her/saved_models/model_no_dr.pt'
+    model_path = '/userhome/model_no_dr.pt'
     #############
     
     # Make sim environment
