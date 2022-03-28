@@ -1,4 +1,3 @@
-import threading
 import numpy as np
 
 """
@@ -20,28 +19,24 @@ class replay_buffer:
                         'g': np.empty([self.size, self.T + 1, self.env_params['goal']]),
                         'actions': np.empty([self.size, self.T, self.env_params['action']]),
                         }
-        # thread lock
-        self.lock = threading.Lock()
     
     # store the episode
     def store_episode(self, episode_batch):
         mb_obs, mb_ag, mb_g, mb_actions = episode_batch
         batch_size = mb_obs.shape[0]
-        with self.lock:
-            idxs = self._get_storage_idx(inc=batch_size)
-            # store the informations
-            self.buffers['obs'][idxs] = mb_obs
-            self.buffers['ag'][idxs] = mb_ag
-            self.buffers['g'][idxs] = mb_g
-            self.buffers['actions'][idxs] = mb_actions
-            self.n_transitions_stored += self.T * batch_size
+        idxs = self._get_storage_idx(inc=batch_size)
+        # store the informations
+        self.buffers['obs'][idxs] = mb_obs
+        self.buffers['ag'][idxs] = mb_ag
+        self.buffers['g'][idxs] = mb_g
+        self.buffers['actions'][idxs] = mb_actions
+        self.n_transitions_stored += self.T * batch_size
     
     # sample the data from the replay buffer
     def sample(self, batch_size):
         temp_buffers = {}
-        with self.lock:
-            for key in self.buffers.keys():
-                temp_buffers[key] = self.buffers[key][:self.current_size]
+        for key in self.buffers.keys():
+            temp_buffers[key] = self.buffers[key][:self.current_size]
         temp_all_g = temp_buffers['g'].copy()
         temp_buffers['g'] = temp_all_g[:, :-1, :]
         temp_buffers['obs_next'] = temp_buffers['obs'][:, 1:, :]
