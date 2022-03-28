@@ -45,7 +45,7 @@ def main():
     env_type='real'
     visualization = False
     args = get_args()
-    buffer_size = int(1800)
+    buffer_size = int(163800)
     save_freq = 200
     # Arguments for 'PINCHING' policy
     
@@ -98,7 +98,7 @@ def main():
     rand_actions = 5
     fails_threshold = 50
     T = env_params['max_timesteps']
-    n_epochs = buffer_size // T
+    n_epochs = 20
     
     for epoch in range(n_epochs):
 
