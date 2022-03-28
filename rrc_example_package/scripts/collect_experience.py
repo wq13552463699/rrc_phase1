@@ -40,8 +40,8 @@ def main():
     # print(goal)
     # some arguments
     load_actor=True
-    max_steps=30
-    steps_per_goal=30
+    max_steps=60
+    steps_per_goal=100
     env_type='real'
     visualization = False
     args = get_args()
