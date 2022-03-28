@@ -33,7 +33,7 @@ def main():
     # goal_json = sys.argv[1]
     # goal = json.loads(goal_json)
     #with open('/userhome/goal.json','r',encoding='utf8') as fp:
-                goal = json.load(fp)['goal']
+                #goal = json.load(fp)['goal']
     #print(goal)
     # some arguments
     load_actor=True
