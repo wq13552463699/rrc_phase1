@@ -166,7 +166,7 @@ def main():
         
         if epoch % save_freq == 0:
             print('saving...')
-            torch.save(buffer, '/output/experience.pth')
+            torch.save(buffer.buffers, '/output/experience.pth')
 
 if __name__ == "__main__":
     main()
