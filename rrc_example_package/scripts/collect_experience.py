@@ -45,7 +45,7 @@ def main():
     env_type='real'
     visualization = False
     args = get_args()
-    buffer_size = int(6e5)
+    buffer_size = int(1800)
     save_freq = 200
     # Arguments for 'PINCHING' policy
     
