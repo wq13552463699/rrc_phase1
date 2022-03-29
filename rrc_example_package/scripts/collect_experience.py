@@ -45,7 +45,7 @@ def main():
     env_type='real'
     visualization = False
     args = get_args()
-    buffer_size = int(163800)
+    buffer_size = int(1800)
     save_freq = 200
     # Arguments for 'PINCHING' policy
     
@@ -98,10 +98,10 @@ def main():
     rand_actions = 5
     fails_threshold = 50
     T = env_params['max_timesteps']
-    n_epochs = 20
+    n_epochs = buffer_size // T
     
     for epoch in range(n_epochs):
-
+        mb_obs, mb_ag, mb_g, mb_actions = [], [], [], []
         ep_obs, ep_ag, ep_g, ep_actions = [], [], [], []
         observation = env.reset(difficulty=difficulty, init_state='normal')
         
@@ -132,7 +132,7 @@ def main():
                 xy_fails += 1
             else:
                 xy_fails = 0
-                
+            
             obs_new = observation_new['observation']
             ag_new = observation_new['achieved_goal']
             g_new = observation_new['desired_goal']
@@ -148,14 +148,18 @@ def main():
         ep_obs.append(obs.copy())
         ep_ag.append(ag.copy())
         ep_g.append(g.copy())
-
+        
+        mb_obs.append(ep_obs)
+        mb_ag.append(ep_ag)
+        mb_g.append(ep_g)
+        mb_actions.append(ep_actions)
         # convert them into arrays
-        ep_obs = np.array(ep_obs)
-        ep_ag = np.array(ep_ag)
-        ep_g = np.array(ep_g)
-        ep_actions = np.array(ep_actions)
+        mb_obs = np.array(mb_obs)
+        mb_ag = np.array(mb_ag)
+        mb_g = np.array(mb_g)
+        mb_actions = np.array(mb_actions)
         # store the episodes
-        buffer.store_episode([ep_obs, ep_ag, ep_g, ep_actions])
+        buffer.store_episode([mb_obs, mb_ag, mb_g, mb_actions])
         
         tf = time.time()
         
