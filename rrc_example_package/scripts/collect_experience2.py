@@ -144,13 +144,19 @@ def main():
             obs_new = observation_new['observation']
             ag_new = observation_new['achieved_goal']
             g_new = observation_new['desired_goal']
-            # append rollouts
-            if count <= goal_length+1:
+            
+            # append rollout
+            if count <= goal_length:
                 ep_obs.append(obs.copy())
                 ep_ag.append(ag.copy())
                 ep_g.append(g.copy())
                 ep_actions.append(action.copy())
-            # re-assign the observation
+
+            if count == (goal_length+1):
+                ep_obs.append(obs.copy())
+                ep_ag.append(ag.copy())
+                ep_g.append(g.copy())
+
             obs = obs_new
             ag = ag_new
             g = g_new
