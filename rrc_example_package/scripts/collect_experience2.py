@@ -112,11 +112,12 @@ def main():
     obs = observation['observation']
     ag = observation['achieved_goal']
     g = observation['desired_goal']
-
+    
+    t0 = time.time()
     for t in range(len(goal)):
         mb_obs, mb_ag, mb_g, mb_actions = [], [], [], []
         ep_obs, ep_ag, ep_g, ep_actions = [], [], [], []
-        t0 = time.time()
+        
         count = 0
         while True:
             count += 1
@@ -149,15 +150,13 @@ def main():
                 ep_ag.append(ag.copy())
                 ep_g.append(g.copy())
                 ep_actions.append(action.copy())
-                print(count)
-                print(info['time_index'])
             # re-assign the observation
             obs = obs_new
             ag = ag_new
             g = g_new
             
             if info['time_index'] >= ((t+1)*task.GOAL_DURATION):
-                print(info['time_index'])
+                #print(info['time_index'])
                 break
 
         ep_obs.append(obs.copy())
@@ -175,15 +174,14 @@ def main():
         mb_actions = np.array(mb_actions)
         # store the episodes
         buffer.store_episode([mb_obs, mb_ag, mb_g, mb_actions])
-        
-        tf = time.time()
-        
+       
         print('-'*30)
         print(buffer.current_size)
         print(f'Epoch {t}/{len(goal)}')
-        print('Time taken for epoch: {:.2f} seconds'.format(tf-t0))
         print('\nRRC reward: {}'.format(info['rrc_reward']))
-        
+    
+    tf = time.time()
+    print('Time taken for epoch: {:.2f} seconds'.format(tf-t0))
     torch.save(buffer.buffers, '/output/experience.pth')
 
 if __name__ == "__main__":
