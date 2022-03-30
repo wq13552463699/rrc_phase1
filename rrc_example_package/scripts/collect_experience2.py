@@ -139,6 +139,9 @@ def main():
                 xy_fails += 1
             else:
                 xy_fails = 0
+             
+            print(count)
+            print(info['time_index'])
             
             obs_new = observation_new['observation']
             ag_new = observation_new['achieved_goal']
