@@ -145,7 +145,7 @@ def main():
             ag_new = observation_new['achieved_goal']
             g_new = observation_new['desired_goal']
             # append rollouts
-            if count <= goal_length:
+            if count <= goal_length+1:
                 ep_obs.append(obs.copy())
                 ep_ag.append(ag.copy())
                 ep_g.append(g.copy())
@@ -158,11 +158,7 @@ def main():
             if info['time_index'] >= ((t+1)*task.GOAL_DURATION):
                 #print(info['time_index'])
                 break
-
-        ep_obs.append(obs.copy())
-        ep_ag.append(ag.copy())
-        ep_g.append(g.copy())
-        
+                
         mb_obs.append(ep_obs)
         mb_ag.append(ep_ag)
         mb_g.append(ep_g)
