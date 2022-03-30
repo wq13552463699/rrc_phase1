@@ -48,7 +48,7 @@ def main():
     #############
     task.GOAL_DURATION = 5 * 1000
     task.FIRST_GOAL_DURATION = 5 * 1000
-    task.EPISODE_LENGTH = 3 * 60 * 1000
+    task.EPISODE_LENGTH = 2 * 60 * 1000
     goal_length = 90
     
     goal = task.sample_goal()
