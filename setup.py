@@ -40,6 +40,7 @@ setuptools.setup(
             "train = rrc_example_package.her.train:main",
             "demo = rrc_example_package.her.demo:main",
             "collect_experience = rrc_example_package.scripts.collect_experience:main",
+            "collect_experience2 = rrc_example_package.scripts.collect_experience2:main",
         ],
     },
 )
