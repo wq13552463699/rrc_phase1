@@ -139,24 +139,25 @@ def main():
                 xy_fails += 1
             else:
                 xy_fails = 0
-             
-            print(count)
-            print(info['time_index'])
-            
+           
             obs_new = observation_new['observation']
             ag_new = observation_new['achieved_goal']
             g_new = observation_new['desired_goal']
             # append rollouts
-            ep_obs.append(obs.copy())
-            ep_ag.append(ag.copy())
-            ep_g.append(g.copy())
-            ep_actions.append(action.copy())
+            if count <= goal_length:
+                ep_obs.append(obs.copy())
+                ep_ag.append(ag.copy())
+                ep_g.append(g.copy())
+                ep_actions.append(action.copy())
+                print(count)
+                print(info['time_index'])
             # re-assign the observation
             obs = obs_new
             ag = ag_new
             g = g_new
             
-            if count % goal_length == 0:
+            if info['time_index'] >= ((t+1)*task.GOAL_DURATION):
+                print(info['time_index'])
                 break
 
         ep_obs.append(obs.copy())
