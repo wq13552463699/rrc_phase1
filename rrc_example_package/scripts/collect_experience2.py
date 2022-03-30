@@ -181,7 +181,7 @@ def main():
         print('\nRRC reward: {}'.format(info['rrc_reward']))
     
     tf = time.time()
-    print('Time taken for epoch: {:.2f} seconds'.format(tf-t0))
+    print('Time taken',(tf-t0))
     torch.save(buffer.buffers, '/output/experience.pth')
 
 if __name__ == "__main__":
