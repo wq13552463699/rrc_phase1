@@ -44,7 +44,7 @@ def main():
     step_size=50
     difficulty=3
     obs_type='default'
-    model_path = 'model_dr.pt'
+    model_path = '/userhome/model_dr.pt'
     #############
     task.GOAL_DURATION = 5 * 1000
     task.FIRST_GOAL_DURATION = 5 * 1000
