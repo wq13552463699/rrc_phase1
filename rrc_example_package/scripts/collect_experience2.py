@@ -180,7 +180,7 @@ def main():
         print('Time taken for epoch: {:.2f} seconds'.format(tf-t0))
         print('\nRRC reward: {}'.format(info['rrc_reward']))
         
-    torch.save(buffer.buffers, 'experience_sim.pth')
+    torch.save(buffer.buffers, '/output/experience.pth')
 
 if __name__ == "__main__":
     main()
