@@ -89,6 +89,7 @@ def main():
     fails_threshold = 50
     # reset env
     observation = env.reset(difficulty=difficulty, init_state='normal')
+    print('The goal is:',env.info["trajectory"])
     while not done:
         obs = observation['observation']
         g = observation['desired_goal']
