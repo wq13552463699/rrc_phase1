@@ -30,8 +30,8 @@ def process_inputs(o, g, o_mean, o_std, g_mean, g_std):
 
 def main():
     # the goal is passed as JSON string
-    # goal_json = sys.argv[1]
-    # goal = json.loads(goal_json)
+    goal_json = sys.argv[1]
+    goal = json.loads(goal_json)
     #with open('/userhome/goal.json','r',encoding='utf8') as fp:
                 #goal = json.load(fp)['goal']
     #print(goal)
@@ -54,8 +54,8 @@ def main():
     sim_env = cube_trajectory_env.SimtoRealEnv(visualization=False, max_steps=max_steps, \
                                                xy_only=False, steps_per_goal=steps_per_goal, step_size=step_size,\
                                                    env_type='sim', obs_type=obs_type, env_wrapped=False,\
-                                                    increase_fps=False)
-                                                       #increase_fps=False, goal_trajectory=goal)
+                                                    #increase_fps=False)
+                                                    increase_fps=False, goal_trajectory=goal)
     # get the env params
     observation = sim_env.reset(difficulty=difficulty, init_state='normal')
     env_params = {'obs': observation['observation'].shape[0], 
@@ -78,8 +78,8 @@ def main():
     env = cube_trajectory_env.SimtoRealEnv(visualization=False, max_steps=max_steps, \
                                                xy_only=False, steps_per_goal=steps_per_goal, step_size=step_size,\
                                                    env_type=env_type, obs_type=obs_type, env_wrapped=False,\
-                                                    increase_fps=False)
-                                                       #increase_fps=False, goal_trajectory=goal)
+                                                    #increase_fps=False)
+                                                    increase_fps=False, goal_trajectory=goal)
     print('Beginning evaluate_stage1...')
     t0 = time.time()
     done = False
