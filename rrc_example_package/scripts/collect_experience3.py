@@ -122,7 +122,6 @@ def main():
         mb_obs, mb_ag, mb_g, mb_actions = [], [], [], []
         ep_obs, ep_ag, ep_g, ep_actions = [], [], [], []
         t0 = time.time()
-        t0 = time.time()
         assert max_steps == 3*steps_per_goal
         print('-'*30)
         for j in range(max_steps):
@@ -191,10 +190,9 @@ def main():
         print('-'*30)
         print('\n')
         
-        if i % save_freq == 0:
-            print('saving...')
-            torch.save(buffer.buffers, 'data_sim/experience_sim5.pth')
-            #100 200 20 290 40
+    tf = time.time()
+    print('Time taken',(tf-t0))
+    torch.save(buffer.buffers, '/output/experience.pth')
 
 if __name__ == "__main__":
     main()
