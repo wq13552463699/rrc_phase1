@@ -41,6 +41,7 @@ setuptools.setup(
             "demo = rrc_example_package.her.demo:main",
             "collect_experience = rrc_example_package.scripts.collect_experience:main",
             "collect_experience2 = rrc_example_package.scripts.collect_experience2:main",
+            "collect_experience3 = rrc_example_package.scripts.collect_experience3:main",
         ],
     },
 )
