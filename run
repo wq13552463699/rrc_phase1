@@ -9,7 +9,7 @@
 # ros2 run rrc_example_package evaluate_stage1 "$@"
 # ros2 run rrc_example_package collect_experience
 # ros2 run rrc_example_package collect_experience2
-ros2 run rrc_example_package collect_experience3 "$@"
+ros2 run rrc_example_package collect_experience3
 
 # Example for Stage 2
 # ros2 run rrc_example_package dice_example_with_gym "$@"
