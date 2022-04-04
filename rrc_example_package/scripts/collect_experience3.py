@@ -49,7 +49,7 @@ def main():
     load_actor=True
     max_steps=90
     steps_per_goal=30
-    step_size=50
+    step_size=49
     env_type='real'
     visualization = 0
     args = get_args()
