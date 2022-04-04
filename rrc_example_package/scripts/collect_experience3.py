@@ -113,7 +113,7 @@ def main():
     obs = observation['observation']
     ag = observation['achieved_goal']
     g = observation['desired_goal']
-    print('GOAL:',self.env.info["trajectory"])
+    print('GOAL:',env.info["trajectory"])
     
     for i in range(rollouts):
         mb_obs, mb_ag, mb_g, mb_actions = [], [], [], []
