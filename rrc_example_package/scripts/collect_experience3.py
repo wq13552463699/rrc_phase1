@@ -150,6 +150,7 @@ def main():
             # append rollouts
             if j >= 85 or j <=5:
                 print('step ',j,' : ',g)
+                print(env.info['time_index'])
             ep_obs.append(obs.copy())
             ep_ag.append(ag.copy())
             ep_g.append(g.copy())
