@@ -45,10 +45,7 @@ def select_actions(pi,args,env_params):
     return action
 
 def main():    
-    # goal_json = sys.argv[1]
-    # goal = json.loads(goal_json)
-    # print(goal)
-    # some arguments
+
     load_actor=True
     max_steps=90
     steps_per_goal=30
@@ -113,7 +110,6 @@ def main():
     fails_threshold = 50
     
     observation = env.reset(difficulty=difficulty, init_state='normal')
-    # p.resetDebugVisualizerCamera(cameraDistance=5, cameraYaw=180, cameraPitch=-30.0, cameraTargetPosition=[0, 0.0, 0.0])
     obs = observation['observation']
     ag = observation['achieved_goal']
     g = observation['desired_goal']
