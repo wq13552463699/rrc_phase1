@@ -46,10 +46,6 @@ def main():
     obs_type='default'
     model_path = '/userhome/model_dr.pt'
     #############
-    task.GOAL_DURATION = 5 * 1000
-    task.FIRST_GOAL_DURATION = 5 * 1000
-    task.EPISODE_LENGTH = 2 * 60 * 1000
-    goal_length = 90
     
     goal = task.sample_goal()
     print(goal)
