@@ -64,7 +64,7 @@ def main():
     #############
     difficulty=3
     obs_type='default'
-    model_path = '/userhome/model_no_dr.pt'
+    model_path = '/userhome/model_experience_22.pt'
     #############
     
     # Make sim environment
