@@ -42,6 +42,7 @@ setuptools.setup(
             "collect_experience = rrc_example_package.scripts.collect_experience:main",
             "collect_experience2 = rrc_example_package.scripts.collect_experience2:main",
             "collect_experience3 = rrc_example_package.scripts.collect_experience3:main",
+            "collect_experience4 = rrc_example_package.scripts.collect_experience4:main",
         ],
     },
 )
