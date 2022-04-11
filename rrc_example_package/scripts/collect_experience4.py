@@ -56,7 +56,7 @@ def main():
     step_size=50
     difficulty=3
     obs_type='default'
-    model_path = '/userhome/model_exp_1.pt'
+    model_path = '/userhome/model_exp_2.pt'
     #############
     steps_per_goal=100
     rollouts_length = 90
