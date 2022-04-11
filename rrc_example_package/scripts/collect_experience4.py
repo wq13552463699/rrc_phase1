@@ -193,7 +193,8 @@ def main():
         print('current_collouts:', buffer.current_size)
         print(f'Epoch {t}/{len(sample_goal)}')
         print('Time taken for epoch: {:.2f} seconds'.format(tf-t0))
-        print('\nRRC reward: {}'.format(info['rrc_reward']))
+        print('RRC reward: {}'.format(info['rrc_reward']))
+        print('t_step={}, rrc={:.1f}'.format(info['time_index'],info['rrc_reward']))
         
     torch.save(buffer.buffers, '/output/experience.pth')
 
