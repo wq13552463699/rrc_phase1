@@ -136,7 +136,8 @@ def main():
                 inputs = process_inputs(obs, g, o_mean, o_std, g_mean, g_std)
                 with torch.no_grad():
                     pi = actor_network(inputs)
-                action = select_actions(pi,args,env_params)
+                #action = select_actions(pi,args,env_params)
+                action = pi.detach().numpy().squeeze()
             else:
                 action = env.action_space.sample()
                 print('Stuck - taking random action!!!')
