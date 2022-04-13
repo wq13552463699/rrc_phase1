@@ -46,7 +46,7 @@ def main():
     step_size=50
     difficulty=3
     obs_type='default'
-    model_path = '/userhome/model_without_dr_0_1.pt'
+    model_path = '/userhome/model_with_dr_10_1.pt'
     print("The model file I am using is:",model_path)
     #############
     
